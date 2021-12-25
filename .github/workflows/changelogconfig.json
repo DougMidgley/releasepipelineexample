@@ -1,0 +1,18 @@
+{
+
+    "header_prefix": "Release:",
+    "group_config": [
+      {
+        "title": "Bug Fixes",
+        "labels": ["bug", "bugfix"]
+      },
+      {
+        "title": "Enhancement",
+        "labels": ["improvements", "enhancement","feature"]
+      },
+      {
+        "title": "Documentation Updates",
+        "labels": ["docs", "documentation", "doc"]
+      }
+    ]
+  }

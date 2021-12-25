@@ -1,14 +1,9 @@
-name-template: '$RESOLVED_VERSION'
-tag-template: '$RESOLVED_VERSION'
 categories:
   - title: '🚀 Features'
     labels:
-      - 'feature'
       - 'enhancement'
   - title: '🐛 Bug Fixes'
     labels:
-      - 'fix'
-      - 'bugfix'
       - 'bug'
   - title: '🧰 Maintenance'
     label: 'chore'
@@ -16,32 +11,17 @@ version-resolver:
   major:
     labels:
       - 'major'
-      - 'breakingchange'
   minor:
     labels:
       - 'minor'
-      - 'feature'
       - 'enhancement'
   patch:
     labels:
       - 'patch'
-      - 'fix'
-      - 'bugfix'
       - 'bug'
+      - 'chore'
   default: patch
-autolabeler:
-  - label: 'chore'
-    files:
-      - '*.md'
-    branch:
-      - '/docs{0,1}\/.+/'
-  - label: 'bug'
-    branch:
-      - '/bug\/.+/'
-  - label: 'enhancement'
-    branch:
-      - '/feature\/.+/'
 template: |
-  ## Changes
+  ## Release Notes
 
   $CHANGES

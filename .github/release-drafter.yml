@@ -1,5 +1,3 @@
-name-template: '$RESOLVED_VERSION'
-tag-template: '$RESOLVED_VERSION'
 categories:
   - title: '🚀 Features'
     labels:
@@ -24,6 +22,6 @@ version-resolver:
       - 'chore'
   default: patch
 template: |
-  ## Changes
+  ## Release Notes
 
   $CHANGES

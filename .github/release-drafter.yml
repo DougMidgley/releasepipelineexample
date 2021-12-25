@@ -31,11 +31,6 @@ version-resolver:
       - 'bugfix'
       - 'bug'
   default: patch
-template: |
-  ## Changes
-
-  $CHANGES
-
 autolabeler:
   - label: 'chore'
     files:
@@ -48,3 +43,7 @@ autolabeler:
   - label: 'enhancement'
     branch:
       - '/feature\/.+/'
+template: |
+  ## Changes
+
+  $CHANGES

@@ -5,13 +5,13 @@ on:
     # branches to consider in the event; optional, defaults to all
     branches:
       - main
-  # # pull_request event is required only for autolabeler
-  # pull_request:
-  #   # Only following types are handled by the action, but one can default to all as well
-  #   types: [opened, reopened, synchronize]
-  # # pull_request_target event is required for autolabeler to support PRs from forks
-  # pull_request_target:
-  #   types: [opened, reopened, synchronize]
+  # pull_request event is required only for autolabeler
+  pull_request:
+    # Only following types are handled by the action, but one can default to all as well
+    types: [opened, reopened, synchronize]
+  # pull_request_target event is required for autolabeler to support PRs from forks
+  pull_request_target:
+    types: [opened, reopened, synchronize]
 
 jobs:
   update_release_draft:
@@ -21,5 +21,7 @@ jobs:
       - uses: release-drafter/release-drafter@v5
         with:
           publish: true
+          # allows autolabeler to run without unmerged PRs from being added to draft
+          disable-releaser: ${{ github.ref_name != github.event.repository.default_branch }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

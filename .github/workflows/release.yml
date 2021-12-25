@@ -1,18 +1,25 @@
-name: Changelog CI
+name: Release Drafter
 
 on:
+  push:
+    # branches to consider in the event; optional, defaults to all
+    branches:
+      - master
+  # pull_request event is required only for autolabeler
   pull_request:
-    types: [ opened ]
+    # Only following types are handled by the action, but one can default to all as well
+    types: [opened, reopened, synchronize]
+  # pull_request_target event is required for autolabeler to support PRs from forks
+  pull_request_target:
+    types: [opened, reopened, synchronize]
 
 jobs:
-  build:
+  update_release_draft:
     runs-on: ubuntu-latest
-
     steps:
-      # Checks-out your repository
-      - uses: actions/checkout@v2
-
-      - name: Run Changelog CI
-        uses: saadmk11/changelog-ci@v1.0.0
+      # Drafts your next Release notes as Pull Requests are merged into "master"
+      - uses: release-drafter/release-drafter@v5
         with:
-          config_file: .github/changelogconfig.json
+          publish: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

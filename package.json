@@ -1,5 +1,5 @@
 {
-  "name": "release pipeline example",
+  "name": "releasepipelineexample",
   "version": "2.4.1",
   "description": "example/tests pipeline for release management",
   "main": "dummy.js",

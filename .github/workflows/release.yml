@@ -31,7 +31,7 @@ jobs:
       - run: |
           git add package.json
           git add package-lock.json
-          git commmit -m "Release ${{ steps.create_release.outputs.tag_name }}"
+          git commit -m "Release ${{ steps.create_release.outputs.tag_name }}"
       - uses: eregon/publish-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

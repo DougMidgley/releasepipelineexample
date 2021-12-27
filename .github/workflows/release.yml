@@ -22,6 +22,11 @@ jobs:
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
+      - run: |
+          echo ${{ steps.create_release.outputs.tag_name }}
+          echo ${{ steps.create_release.outputs.name }}
+          echo ${{ steps.create_release.outputs.id }}
+          echo ${{ steps.create_release.outputs.resolved_version }}
       - uses: HarmvZ/set-package-json-version-action@v0.1.2
         with:
           version: ${{ steps.create_release.outputs.tag_name }}
